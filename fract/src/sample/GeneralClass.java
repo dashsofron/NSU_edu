@@ -13,34 +13,49 @@ public class GeneralClass implements Cloneable {
     public GeneralClass(Fractal formula, FractalColour color) {
         element = formula;
         draw = color;
-        colorsNum=1;
+        colorsNum = 1;
     }
+
     public GeneralClass(Fractal formula, FractalColour color, FractalColour color2) {
         element = formula;
         draw = color;
-        draw1=color2;
-        colorsNum=2;
+        draw1 = color2;
+        colorsNum = 2;
     }
-    public GeneralClass clone() throws CloneNotSupportedException{
-        return (GeneralClass)super.clone();
+
+    public GeneralClass clone() throws CloneNotSupportedException {
+        return (GeneralClass) super.clone();
     }
-    public void setFormula(Fractal formula){
-        element=formula;
+
+    public void setFormula(Fractal formula) {
+        element = formula;
     }
-    public void setColor(FractalColour color){
-        draw=color;
+
+    public void setColor(FractalColour color) {
+        draw = color;
     }
-    public void setColor2(FractalColour color){ draw1=color;colorsNum=2;
+
+    public void setColor2(FractalColour color) {
+        draw1 = color;
+        colorsNum = 2;
     }
-    public  int countFractal(Complex c) {
+
+    public int countFractal(Complex c) {
         return element.countFractal(c);
     }
-     Paint getColorForRect(double xGet, double yGet) {
-        Complex c=new Complex(xGet,yGet);
-        if (colorsNum==1){draw.makeColour(countFractal(c));return draw.getColour();}
-        int num=countFractal(c);
-        if(num==299)return Color.rgb(0,0,0);
-        if(num<150){draw.makeColour(num);return draw.getColour();}
-        else {draw1.makeColour(299-num);return draw1.getColour();}
+
+    Paint getColorForRect(int num) {
+        if (colorsNum == 1) {
+            draw.makeColour(num);
+            return draw.getColour();
+        }
+        if (num == 299) return Color.rgb(0, 0, 0);
+        if (num < 150) {
+            draw.makeColour(num);
+            return draw.getColour();
+        } else {
+            draw1.makeColour(299 - num);
+            return draw1.getColour();
+        }
     }
 }

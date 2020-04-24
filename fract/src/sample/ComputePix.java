@@ -1,6 +1,5 @@
 package sample;
 
-import javafx.scene.paint.Paint;
 
 public class ComputePix implements Runnable {
     private int iStart;
@@ -15,10 +14,10 @@ public class ComputePix implements Runnable {
     private double stepX;
     private double stepY;
     private GeneralClass M;
-    private Paint[][] paintNum;
+    private int[][] paintNum;
     private Thread thread;
 
-    public ComputePix(int iStart, int iEnd, int jStart, int jEnd, int reckSize, int width, int height, double xShift, double yShift, double stepX, double stepY, GeneralClass M, Paint[][] paintNum) {
+    public ComputePix(int iStart, int iEnd, int jStart, int jEnd, int reckSize, int width, int height, double xShift, double yShift, double stepX, double stepY, GeneralClass M, int[][] paintNum) {
         thread = new Thread(this);
         this.iStart = iStart;
         this.iEnd = iEnd;
@@ -45,7 +44,7 @@ public class ComputePix implements Runnable {
             for (int j = jStart; j < jEnd; j += reckSize) {
                 double x = i * stepX / reckSize + xShift;
                 double y = j * stepY / reckSize + yShift;
-                paintNum[i][j] = M.getColorForRect(x / (double) width, y / (double) height);
+                paintNum[i][j] = M.countFractal(new Complex(x / (double) width, y / (double) height));
             }
         }
     }

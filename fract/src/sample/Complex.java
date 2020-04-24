@@ -44,15 +44,15 @@ public class Complex {
 
     public double getArg() {
         if (re == 0)
-            if (im >= 0) return  Math.PI / 2;
+            if (im >= 0) return Math.PI / 2;
             else return -Math.PI / 2;
         if (re > 0) {
             return Math.atan(im / re);
         } else {
             if (re < 0 && im > 0) {
-                return  (Math.PI + Math.atan(im / re));
+                return (Math.PI + Math.atan(im / re));
             } else {
-                return(-Math.PI + Math.atan(im / re));
+                return (-Math.PI + Math.atan(im / re));
             }
         }
     }
@@ -69,7 +69,7 @@ public class Complex {
 
     public static Complex cPow(Complex z, int power) {
         double factor = Math.pow(z.getMod(), power);
-        return new Complex( (factor * Math.cos(power * z.getArg())), (factor * Math.sin(power * z.getArg())));
+        return new Complex((factor * Math.cos(power * z.getArg())), (factor * Math.sin(power * z.getArg())));
     }
 
 }

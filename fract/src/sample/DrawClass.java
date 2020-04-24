@@ -3,34 +3,29 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Label;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 
 
 public class DrawClass {
-    private int width = 1400;
-    private int height = 800;
+    private int width;
+    private int height;
     private int reckSize;
     private double xShift = 0;
     private double yShift = 0;
     private double stepX;
     private double stepY;
     private GeneralClass M;
-    private Paint[][] paintNum;
+    private int[][] paintNum;
     private ComputePix[] threads;
     private int threadNum = 4;
-    Label SomeInstruct;
-    DrawClass(Label L) {
+
+    DrawClass(int width, int height) {
+        this.width = width;
+        this.height = height;
         reckSize = 1;
-        SomeInstruct=L;
         stepX = reckSize;
         stepY = reckSize;
         M = setDrawer(new Mandelbrot(), new FractalColourName());
-        paintNum = new Paint[width][height];
-        for (int i = 0; i < width; i++)
-            for (int j = 0; j < height; j++)
-                paintNum[i][j] = Color.rgb(255, 255, 255);
+        paintNum = new int[width][height];
         threads = new ComputePix[threadNum];
     }
 
@@ -72,18 +67,28 @@ public class DrawClass {
     }
 
     @FXML
-    public Canvas drawCanvas(Canvas canvas) {
-        SomeInstruct.setText("Drawing...");
+    public Canvas drawCountCanvas(Canvas canvas) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         makeColors();
         for (int i = 0; i < width; i += reckSize)
             for (int j = 0; j < height; j += reckSize) {
-                gc.setFill(paintNum[i][j]);
+                gc.setFill(M.getColorForRect(paintNum[i][j]));
                 gc.fillRect(i, j, reckSize, reckSize);
             }
-        SomeInstruct.setText("Finished!");
         return canvas;
     }
+
+    @FXML
+    public Canvas drawCanvas(Canvas canvas) {
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        for (int i = 0; i < width; i += reckSize)
+            for (int j = 0; j < height; j += reckSize) {
+                gc.setFill(M.getColorForRect(paintNum[i][j]));
+                gc.fillRect(i, j, reckSize, reckSize);
+            }
+        return canvas;
+    }
+
 
     public void parallelMakeColors() {
 
@@ -109,7 +114,7 @@ public class DrawClass {
 
     public void reactOnResize(double xLeft, double xRight, double yUp, double yDown, Canvas canvas) {
         resizeBySpots(xLeft, xRight, yUp, yDown);
-        drawCanvas(canvas);
+        drawCountCanvas(canvas);
     }
 
     public void resizeBySpots(double xLeft, double xRight, double yUp, double yDown) {
