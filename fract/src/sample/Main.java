@@ -18,7 +18,7 @@ public class Main extends Application {
         controller = loader.getController();
         primaryStage.setTitle("Fract");
         primaryStage.getIcons().add(new Image("20f0480250d8f68090c7387bb17bfd75.png"));
-        controller.setStage(primaryStage);
+
         primaryStage.setScene(new Scene(controller.getBox()));
         primaryStage.getScene().setOnMousePressed(controller.getListener()::mousePressedHandler);
         primaryStage.getScene().setOnMouseReleased(controller.getListener()::mouseReleasedHandler);

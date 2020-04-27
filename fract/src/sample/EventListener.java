@@ -8,6 +8,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.ScrollEvent;
 
+import java.sql.SQLOutput;
 
 
 public class EventListener {
@@ -15,15 +16,15 @@ public class EventListener {
     Canvas canvas;
     TextField threds;
     Label text;
-
     EventListener(DrawClass drawer, Canvas canvas, TextField threds, Label text) {
         this.drawer = drawer;
         this.canvas = canvas;
         this.threds = threds;
-        this.text = text;
+        this.text=text;
     }
 
     public void mousePressedHandler(MouseEvent event) {
+        text.setText("Resizing...");
         MyMouse.saveOld();
         MyMouse.setSX((int) event.getSceneX());
         MyMouse.setSY((int) event.getSceneY());
@@ -45,15 +46,15 @@ public class EventListener {
             return;
         }
         if (event.getCode() == KeyCode.ENTER) {
-            if (!threds.getText().equals("")) {
-                text.setText("Hi there!You can change threads number in field above to make drawing faster (check your device settings for your max threads number).Default set is Mandelbrot, colour is Standard. For changing it press buttons.You can use different colours,choose one left and right colour.You can scroll and select a rectangle for zooming,press Delete to go back.Have fun :)");
-                drawer.setThreadsNum(Integer.parseInt(threds.getText()));
-            } else text.setText("You need to write some digit");
+            if( !threds.getText().equals(""))
+            drawer.setThreadsNum(Integer.parseInt(threds.getText()));
+            else text.setText("You need to write some digit");
             event.consume();
         }
     }
 
     public void mouseScrollHandler(ScrollEvent event) {
+        text.setText("Resizing...");
         event.consume();
         double deltaY = event.getDeltaY();
         if (deltaY < 0)
