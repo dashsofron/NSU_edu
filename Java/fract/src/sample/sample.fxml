@@ -1,0 +1,76 @@
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<?import javafx.scene.layout.Pane?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<HBox fx:id="hbox"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="sample.Controller">
+    <children>
+        <BorderPane fx:id="pane"
+        HBox.hgrow="ALWAYS"
+        >
+            <left>
+                <Canvas fx:id="canvas" height="800" width="1400"/>
+            </left>
+            <right>
+                <VBox
+
+                        fx:id="ButtonBox">
+                    <children>
+                        <Button fx:id="Mandelbrot" text="Mandelbrot" onAction="#buttonClickedM" prefHeight="40"
+                                prefWidth="100"
+                        />
+                        <Button fx:id="Julia" text="Julia" onAction="#buttonClickedJ" prefHeight="40" prefWidth="100"/>
+                        <Button fx:id="Spider" text="Spider" onAction="#buttonClickedS" prefHeight="40"
+                                prefWidth="100"/>
+                        <Button fx:id="Lambda" text="Lambda" onAction="#buttonClickedL" prefHeight="40"
+                                prefWidth="100"/>
+                        <HBox>
+                            <Button fx:id="grey1" text="grey" onAction="#buttonClickedGrey1" prefHeight="40"
+                                    prefWidth="50"/>
+                            <Button fx:id="grey2" text="grey" onAction="#buttonClickedGrey2" prefHeight="40"
+                                    prefWidth="50"/>
+                        </HBox>
+                        <HBox>
+                            <Button fx:id="red1" text="red" onAction="#buttonClickedRed1" prefHeight="40"
+                                    prefWidth="50"/>
+                            <Button fx:id="red2" text="red" onAction="#buttonClickedRed2" prefHeight="40"
+                                    prefWidth="50"/>
+                        </HBox>
+                        <HBox>
+
+                            <Button fx:id="blue1" text="blue" onAction="#buttonClickedBlue1" prefHeight="40"
+                                    prefWidth="50"/>
+                            <Button fx:id="blue2" text="blue" onAction="#buttonClickedBlue2" prefHeight="40"
+                                    prefWidth="50"/>
+                        </HBox>
+                        <HBox>
+
+                            <Button fx:id="green1" text="green" onAction="#buttonClickedGreen1" prefHeight="40"
+                                    prefWidth="50"/>
+                            <Button fx:id="green2" text="green" onAction="#buttonClickedGreen2" prefHeight="40"
+                                    prefWidth="50"/>
+                        </HBox>
+                        <Button fx:id="Standard" text="Standard" onAction="#buttonClickedStandard" prefHeight="40"
+                                prefWidth="100"/>
+                        <Button fx:id="Start" text="START" onAction="#buttonClickedStart" prefHeight="40"
+                                prefWidth="100"/>
+                        <TextField fx:id="ThreadsNum" maxWidth="100"  promptText="press ENTR">  </TextField>
+                        <Label fx:id="SomeInstruct" maxWidth="100" wrapText="true"
+                               text="Hi there!You can change threads number in field above to make drawing faster (check your device settings for your max threads number).Default set is Mandelbrot, colour is Standard. For changing it press buttons.You can use different colours,choose one left and right colour.You can scroll and select a rectangle for zooming,press Delete to go back.Have fun :)"/>
+                    </children>
+                </VBox>
+            </right>
+        </BorderPane>
+    </children>
+</HBox>
