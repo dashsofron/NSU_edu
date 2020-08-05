@@ -1,1 +1,0 @@
-# bazelSDL2_fullpack
