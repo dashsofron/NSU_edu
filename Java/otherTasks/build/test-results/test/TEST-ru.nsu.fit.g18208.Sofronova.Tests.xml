@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.fit.g18208.Sofronova.Tests" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-08-05T09:42:55" hostname="DESKTOP-P0MILE8" time="0.006">
+  <properties/>
+  <testcase name="work" classname="ru.nsu.fit.g18208.Sofronova.Tests" time="0.004"/>
+  <testcase name="work2" classname="ru.nsu.fit.g18208.Sofronova.Tests" time="0.0"/>
+  <testcase name="work3" classname="ru.nsu.fit.g18208.Sofronova.Tests" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
