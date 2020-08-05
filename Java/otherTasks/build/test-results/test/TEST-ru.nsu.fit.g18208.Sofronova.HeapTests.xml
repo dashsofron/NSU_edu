@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.fit.g18208.Sofronova.HeapTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-08-05T09:52:25" hostname="DESKTOP-P0MILE8" time="0.005">
+  <properties/>
+  <testcase name="Null" classname="ru.nsu.fit.g18208.Sofronova.HeapTests" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

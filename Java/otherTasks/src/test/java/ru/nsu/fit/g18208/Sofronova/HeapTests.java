@@ -27,6 +27,19 @@ public class HeapTests {
         int[] array1={1,2,4,5,6,7,7};
         new HeapSort().sort(array);
         Assert.assertArrayEquals(array,array1);
-
+    }
+    @Test
+    public void emptyShit(){
+        int[] array={};
+        int[] array1={};
+        new HeapSort().sort(array);
+        Assert.assertArrayEquals(array,array1);
+    }
+    @Test
+    public void Null(){
+        int[] array=null;
+        int[] array1=null;
+        new HeapSort().sort(array);
+        Assert.assertArrayEquals(array,array1);
     }
 }
