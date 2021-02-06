@@ -1,0 +1,8 @@
+.idea/
+.gradle/
+build/
+*.bin
+*.lock
+*.properties
+*.xml
+*.class
