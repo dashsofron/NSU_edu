@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.canvas.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.PlayWindowController">
+   <children>
+      <HBox prefHeight="472.0" prefWidth="634.0">
+         <children>
+            <Canvas fx:id="canvas" height="470.0" width="436.0" />
+            <Separator orientation="VERTICAL" prefHeight="472.0" prefWidth="76.0" />
+            <VBox prefHeight="472.0" prefWidth="424.0">
+               <children>
+                  <HBox prefHeight="242.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="242.0" prefWidth="236.0">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="126.0" text="Конфиг" />
+                              <TextField fx:id="lenght" editable="false" prefHeight="17.0" prefWidth="144.0" text="Длина">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="width" editable="false" text="Ширина">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="staticFood" editable="false" text="Еда статик">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="foodPerPlayer" editable="false" text="Еда на игрока">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="deadFoodProb" editable="false" prefHeight="31.0" prefWidth="149.0" text="Еда после смерти">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="stateDelay" editable="false" text="Такт обновления">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="ping" editable="false" text="Пинг">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="nodeTimeout" editable="false" text="Таймаут">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <Separator prefHeight="0.0" prefWidth="24.0" />
+                        <VBox prefHeight="242.0" prefWidth="81.0">
+                           <children>
+                              <Button fx:id="menu" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" text="Меню" />
+                              <Button fx:id="start" mnemonicParsing="false" prefHeight="31.0" prefWidth="85.0" text="Начать" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <HBox prefHeight="212.0" prefWidth="374.0">
+                     <children>
+                        <TextArea fx:id="playersInfo" editable="false" prefHeight="212.0" prefWidth="348.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</StackPane>

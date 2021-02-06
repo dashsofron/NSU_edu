@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="538.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.MenuController">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <VBox prefHeight="400.0" prefWidth="152.0" />
+            <VBox prefHeight="400.0" prefWidth="313.0">
+               <children>
+                  <VBox prefHeight="41.0" prefWidth="303.0" />
+                  <TextField fx:id="name" alignment="TOP_CENTER" text="Имя" />
+                  <TextField fx:id="port" alignment="TOP_CENTER" text="9091" />
+                  <Separator prefHeight="18.0" prefWidth="303.0" />
+                  <Button fx:id="newGame" disable="true" mnemonicParsing="false" onAction="#startNewGame" prefHeight="31.0" prefWidth="306.0" text="Новая игра" />
+                  <Separator prefHeight="13.0" prefWidth="303.0" />
+                  <Button fx:id="startGame" disable="true" mnemonicParsing="false" onAction="#joinGame" prefHeight="35.0" prefWidth="330.0" text="Начать игру" />
+                  <Separator prefHeight="20.0" prefWidth="303.0" />
+                  <HBox prefHeight="285.0" prefWidth="318.0">
+                     <children>
+                        <VBox prefHeight="254.0" prefWidth="376.0">
+                           <children>
+                              <HBox prefHeight="11.0" prefWidth="304.0">
+                                 <children>
+                                    <Label fx:id="gameInfoHeader" disable="true" prefHeight="32.0" prefWidth="122.0" text="Инфа об играх" />
+                                    <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="120.0" />
+                                    <ChoiceBox fx:id="chooseGameNum" disable="true" prefHeight="19.0" prefWidth="47.0" />
+                                    <Separator orientation="VERTICAL" prefHeight="35.0" prefWidth="42.0" />
+                                 </children>
+                              </HBox>
+                              <TextArea fx:id="gameInfo" editable="false" prefHeight="258.0" prefWidth="315.0" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="141.0" prefWidth="62.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="400.0" prefWidth="165.0">
+               <children>
+                  <Separator prefHeight="41.0" prefWidth="165.0" />
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="22.0" />
+                        <VBox prefHeight="100.0" prefWidth="141.0">
+                           <children>
+                              <Label fx:id="infoLabel" prefHeight="34.0" prefWidth="130.0" text="Введите данные" />
+                              <Button fx:id="getUserInfo" mnemonicParsing="false" onAction="#tryGetData" prefHeight="31.0" prefWidth="134.0" text="Дальше" />
+                              <Separator prefWidth="200.0" />
+                              <Button fx:id="availableGames" disable="true" mnemonicParsing="false" onAction="#getAvailableGames" text="Доступные игры" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children></VBox>
+         </children>
+      </HBox>
+   </children>
+</StackPane>

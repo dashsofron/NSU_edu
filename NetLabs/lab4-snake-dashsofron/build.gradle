@@ -1,0 +1,16 @@
+plugins {
+    id "java"
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 11
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'com.google.protobuf', name: 'protobuf-java', version: '3.13.0'
+}
+
