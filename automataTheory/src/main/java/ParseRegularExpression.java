@@ -8,16 +8,27 @@ public class ParseRegularExpression {
 
     public List<StateNode> parseRegularExpression(String expression) {
         System.out.println(expression);
+        expression=checkExcess(expression);
+        System.out.println(expression);
+
         Set<Character> alphabet = getAlphabet(expression);
         System.out.println(alphabet);
-        ArrayList<TreeNode> tree = getTreeFromString(expression, 0);
-        printTree(tree, "");
-        StateNode stateTree = new StateNode(buildStateTree(tree, new ArrayList<>()));
-        setNumbers(stateTree, 1);
+        Set<StringNode> terms = new TreeSet<>();
+        getTreeFromString(new StringNode(expression), terms);
+        for (StringNode node:terms
+             ) {
+            System.out.print(node.value+" | ");
+        }
         System.out.println();
-        System.out.println("State machine\n");
-        printStateMachine(stateTree,"");
+        Set<String> cleanTree = cleanTree(terms);
+        System.out.println(cleanTree);
+        StateNode stateTree = new StateNode();
+        buildStateTree(cleanTree, stateTree);
+        setNumbers(stateTree, 0);
         System.out.println();
+//        System.out.println("State machine\n");
+//        printStateMachine(stateTree, "");
+//        System.out.println();
         ArrayList<TableString> start = new ArrayList<>();
         makeStateTable(stateTree, alphabet, start);
         printTable(start, alphabet);
@@ -52,28 +63,32 @@ public class ParseRegularExpression {
 
     public void makeStateTable(StateNode stateMachine, Set<Character> alphabet, ArrayList<TableString> start) {
         //System.out.println(stateMachine.myNum);
-        if (stateMachine == null||stateMachine.getTable) return;
-        stateMachine.getTable=true;
-        start.add(tableBuilding(stateMachine, alphabet));
+        if (stateMachine == null || stateMachine.getTable) return;
+        stateMachine.getTable = true;
+        TableString newStr = tableBuilding(stateMachine, alphabet);
+        if (newStr != null) start.add(newStr);
         if (stateMachine.nextStates != null && !stateMachine.nextStates.isEmpty())
             for (StateNode childNode : stateMachine.nextStates
             ) {
-                    makeStateTable(childNode, alphabet, start);
+                makeStateTable(childNode, alphabet, start);
             }
     }
 
     public TableString tableBuilding(StateNode currentState, Set<Character> alphabet) {
         TableString currentString = new TableString();
         currentString.stateName = stateDefaultName + currentState.myNum;
+        if (currentState.nextStates == null) return null;
         for (Character symb : alphabet
         ) {
+            boolean find = false;
             for (StateNode child : currentState.nextStates
             ) {
-                if (child.myTriggerSymbol.equals(symb))
+                if (child.myTriggerSymbol.equals(symb)) {
                     currentString.stateTransitions.add(new TableNode(symb, stateDefaultName + child.myNum));
+                    find = true;
+                }
             }
-            if (currentString.stateTransitions == null || currentString.stateTransitions.isEmpty() || !currentString.stateTransitions.get(currentString.stateTransitions.size() - 1).equals(symb))
-                currentString.stateTransitions.add(new TableNode(symb));
+            if (!find) currentString.stateTransitions.add(new TableNode(symb));
         }
         return currentString;
     }
@@ -99,52 +114,50 @@ public class ParseRegularExpression {
     }
 
     //----------------------------make machine state by simple tree
-    public ArrayList<StateNode> buildStateTree(ArrayList<TreeNode> simpleTree, ArrayList<StateNode> start) {
-        ArrayList<StateNode> current = start;
-        for (TreeNode node : simpleTree
+    public void buildStateTree(Set<String> simpleTree, StateNode start) {
+
+        for (String term : simpleTree
         ) {
-            if (node.children != null) {//если есть дети, идем в глубину и для листьев создаем автоматы, используя созданные предыдущие
-                start = buildStateTree(node.children, start);
-            } else {//иначе это и есть лист и надо строить автомат
-                for (int i = 0; i < node.value.length(); i++) {
-                    char currentSymb = node.value.charAt(i);//взяли символ
+            StateNode currentNode = start;
+            for (int i = 0; i < term.length(); i++) {
+                char currentSymb = term.charAt(i);//взяли символ
 //проверка на *
-
-
-                    StateNode currentNode;
-                    Integer wayNum = findPath(current, currentSymb);//посчитали номер элемента, у которого нужный нам переход
-                    if (wayNum == null)//если нет необходимого нам перехода, создаем и переходим на следующий шаг
-                    {
-                        current.add(new StateNode(currentSymb));
-                        current.get(current.size() - 1).nextStates = new ArrayList<>();
-                        currentNode = current.get(current.size() - 1);
-                    } else {//иначе переходим не создавая
-                        currentNode = current.get(wayNum);
-                    }
-                    current = currentNode.nextStates;
-                    if (i < node.value.length() - 1 && node.value.charAt(i + 1) == '*' && currentSymb != ')' && haveLoop(currentNode) == null)
-                    //если след символ *, а сейчас - нескобка - повторение одного символа. Надо сделать ссылку нп себя же
-                    {
-                        current.add(currentNode);
-                    }
-
+                int currentNum;
+                Integer wayNum = findPath(currentNode, currentSymb);//посчитали номер элемента, у которого нужный нам переход
+                if (wayNum == null)//если нет необходимого нам перехода, создаем и переходим на следующий шаг
+                {
+                    if (currentNode.nextStates == null) currentNode.nextStates = new ArrayList<>();
+                    currentNode.nextStates.add(new StateNode(currentSymb));
+                    currentNum=start.nextStates.size() - 1;
+                } else {//иначе переходим не создавая
+                    currentNum=wayNum;
                 }
-            }
+                currentNode = currentNode.nextStates.get(currentNum);
 
+                if (i < term.length() - 1 && term.charAt(i + 1) == '*' && currentSymb != ')' && haveLoop(currentNode) == null)
+                //если след символ *, а сейчас - нескобка - повторение одного символа. Надо сделать ссылку нп себя же
+                {
+                    if (currentNode.nextStates == null) currentNode.nextStates = new ArrayList<>();
+                    currentNode.nextStates.add(currentNode);
+//                    currentNode.nextStates.get(currentNode.nextStates.size() - 1).nextStates = new ArrayList<>();
+//                    currentNode.nextStates.get(currentNode.nextStates.size() - 1).nextStates.add(currentNode.nextStates.get(currentNode.nextStates.size() - 1));
+                }
+
+
+            }
         }
-        return start;
     }
 
-    public Integer findPath(ArrayList<StateNode> ways, char currentSymb) {
-        if (ways == null || ways.isEmpty()) return null;
-        for (int i = 0; i < ways.size(); i++)
-            if (ways.get(i).myTriggerSymbol == currentSymb)
+    public Integer findPath(StateNode root, char currentSymb) {
+        if (root.nextStates == null || root.nextStates.isEmpty()) return null;
+        for (int i = 0; i < root.nextStates.size(); i++)
+            if (root.nextStates.get(i).myTriggerSymbol == currentSymb)
                 return i;
         return null;
     }
 
     public Integer haveLoop(StateNode current) {
-        if (current == null || current.nextStates.isEmpty()) return null;
+        if (current == null || current.nextStates == null || current.nextStates.isEmpty()) return null;
         for (int i = 0; i < current.nextStates.size(); i++)
             if (current.nextStates.get(i).equals(current))
                 return i;
@@ -173,82 +186,79 @@ public class ParseRegularExpression {
     }
 
     //----------------------------Tree without +, simplify the machine state build
-    public ArrayList<TreeNode> getTreeFromString(String expression, int iter) {
-        ArrayList<TreeNode> tree = new ArrayList<>();
-        Set<String> treeSet = new TreeSet<>();
-        if (expression.indexOf('+') < 0) {
-            if (iter == 0) {
-                tree.add(new TreeNode(checkExcess(expression)));
-                return tree;
-            } else return null;
-        }
-        while (expression.indexOf('(') == 0 && expression.lastIndexOf(')') == expression.length() - 1)
-            expression = expression.substring(1, expression.length() - 1);
+    public void getTreeFromString(StringNode expression,  Set<StringNode> treeSet) {
+        //ArrayList<TreeNode> tree = new ArrayList<>();
+        expression.value=checkExcess(expression.value);
+        treeSet.add(expression);
+        expression.visited = true;
+        if (expression.value.indexOf('+') < 0) {
+            return;
+        } else expression.delete = true;
+
         StringBuilder current = new StringBuilder();
         int currentNum = 0;
         int brackNum = 0;
-        while (currentNum < expression.length()) {
-            switch (expression.charAt(currentNum)) {
+        while (currentNum < expression.value.length()) {
+            switch (expression.value.charAt(currentNum)) {
                 case '+':
                     if (brackNum == 0) {
-                        treeSet.add(checkExcess(current));
+                        treeSet.add(new StringNode(checkExcess(current)));
                         current.delete(0, current.length());
-                    } else current.append(expression.charAt(currentNum));
+                    } else current.append(expression.value.charAt(currentNum));
                     break;
                 case '(':
-                    current.append(expression.charAt(currentNum));
+                    current.append(expression.value.charAt(currentNum));
                     brackNum++;
                     break;
                 case ')':
-                    current.append(expression.charAt(currentNum));
+                    current.append(expression.value.charAt(currentNum));
                     brackNum--;
                     break;
                 default:
-                    current.append(expression.charAt(currentNum));
+                    current.append(expression.value.charAt(currentNum));
 
             }
             currentNum++;
-            if (currentNum == expression.length() && current.length() > 0) treeSet.add(checkExcess(current));
+            if(expression.value.equals(current.toString()))
+                expression.delete=false;
+            if (currentNum == expression.value.length() && current.length() > 0)
+                treeSet.add(new StringNode(checkExcess(current)));
 
         }
-        if (current.toString().equals(expression)) return null;
 
-        for (String expr : treeSet
+        for (StringNode string : treeSet
         ) {
-            tree.add(new TreeNode(expr));
-
+            if (!string.visited)
+                getTreeFromString(string, treeSet);
         }
 
-
-        for (TreeNode treeNode : tree
-        ) {
-            treeNode.setChildren(getTreeFromString(treeNode.value, 1));
-        }
-
-
-        return tree;
     }
 
-    public void printTree(ArrayList<TreeNode> tree, String num) {
-        for (int i = 0; i < tree.size(); i++)
-            System.out.println(num + "|" + i + " :" + tree.get(i).value);
-        for (int i = 0; i < tree.size(); i++) {
-            if (tree.get(i).children != null)
-                printTree(tree.get(i).children, i + num);
+    public Set<String> cleanTree(Set<StringNode> tree) {
+        TreeSet<String> cleanTree = new TreeSet<>();
+        for (StringNode node : tree
+        ) {
+            if (!node.delete) cleanTree.add(node.value);
+
         }
-
-
+        return cleanTree;
     }
 
     public String checkExcess(StringBuilder string) {
-        for (int i = 0; i < string.length() - 2; i++)
+        for (int i = 0; i < string.length() - 2; i++) {
             if (string.charAt(i) == string.charAt(i + 1) && string.charAt(i + 2) == '*')
                 string.delete(i, i + 1);
+            if(string.charAt(i)=='*'&&string.charAt(i-1)==string.charAt(i+1))
+                string.delete(i,i+1);
+        }
         return string.toString();
     }
 
-    public String checkExcess(String string) {
-        StringBuilder b = new StringBuilder(string);
+
+    public String checkExcess(String expression) {
+        while (expression.indexOf('(') == 0 && expression.lastIndexOf(')') == expression.length() - 1)
+            expression = expression.substring(1, expression.length() - 1);
+        StringBuilder b = new StringBuilder(expression);
         return checkExcess(b);
 
     }
