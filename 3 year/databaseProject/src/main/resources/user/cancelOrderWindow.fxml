@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="219.0" prefWidth="279.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.user.CancelOrderController">
+   <children>
+      <TextField fx:id="bookIdField" layoutX="46.0" layoutY="31.0" promptText="Идентификатор книги" />
+      <Button fx:id="cancelOrderButton" layoutX="76.0" layoutY="83.0" mnemonicParsing="false" onAction="#cancelOrder" text="Отменить заказ" />
+      <TextArea fx:id="infoArea" editable="false" layoutX="32.0" layoutY="136.0" prefHeight="52.0" prefWidth="216.0" promptText="информационное поле" />
+   </children>
+</AnchorPane>

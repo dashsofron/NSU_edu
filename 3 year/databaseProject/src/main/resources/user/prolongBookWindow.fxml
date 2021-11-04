@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:controller="UI.user.ContinueOrderController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="279.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="bookIdField" layoutX="46.0" layoutY="31.0" promptText="Идентификатор книги" />
+      <Button fx:id="prolongButton" layoutX="96.0" layoutY="135.0" mnemonicParsing="false" onAction="#prolong" text="Продлить" />
+      <TextArea fx:id="infoArea" editable="false" layoutX="32.0" layoutY="187.0" prefHeight="58.0" prefWidth="216.0" promptText="информационное поле" />
+      <DatePicker fx:id="returningDateField" layoutX="31.0" layoutY="82.0" promptText="Дата возвращения" />
+   </children>
+</AnchorPane>

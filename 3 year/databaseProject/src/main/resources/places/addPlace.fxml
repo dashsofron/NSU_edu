@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.places.AddPlaceController">
+   <children>
+      <TextField fx:id="nameField" alignment="CENTER" layoutX="116.0" layoutY="45.0" promptText="Название" />
+      <TextField fx:id="addressField" alignment="CENTER" layoutX="116.0" layoutY="93.0" promptText="Адрес" />
+      <ComboBox fx:id="typeBox" layoutX="135.0" layoutY="144.0" prefWidth="150.0" promptText="Тип" />
+      <Button fx:id="addButton" layoutX="167.0" layoutY="192.0" mnemonicParsing="false" onAction="#addPlace" text="Добавить" />
+      <TextArea fx:id="infoArea" layoutX="83.0" layoutY="246.0" prefHeight="76.0" prefWidth="254.0" promptText="Информационное поле" />
+
+   </children>
+</AnchorPane>

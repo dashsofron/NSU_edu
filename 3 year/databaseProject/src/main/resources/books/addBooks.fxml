@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.books.AddBookController">
+   <children>
+      <CheckBox fx:id="categoryCheck" layoutX="144.0" layoutY="98.0" mnemonicParsing="false" onAction="#openType" text="новый тип книги" />
+      <ComboBox fx:id="typeBox" layoutX="142.0" layoutY="138.0" prefWidth="150.0" promptText="Тип книги" />
+      <ComboBox fx:id="placeBox" layoutX="132.0" layoutY="44.0" prefHeight="31.0" prefWidth="168.0" promptText="Место хранения" />
+      <TextField fx:id="nameField" alignment="CENTER" layoutX="123.0" layoutY="241.0" promptText="Имя" visible="false" />
+      <TextField fx:id="authorField" alignment="CENTER" layoutX="123.0" layoutY="191.0" promptText="Автор" visible="false" />
+      <ComboBox fx:id="genreBox" layoutX="141.0" layoutY="138.0" prefWidth="150.0" promptText="Жанр" visible="false" />
+      <Button fx:id="addButton" layoutX="173.0" layoutY="294.0" mnemonicParsing="false" onAction="#addBook" text="Добавить" />
+      <TextArea fx:id="infoArea" layoutX="132.0" layoutY="335.0" prefHeight="52.0" prefWidth="168.0" promptText="Информационное поле" />
+   </children>
+</AnchorPane>

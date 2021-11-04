@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1593.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.readers.GetStudentController">
+    <children>
+        <ComboBox fx:id="readerTypeBox" layoutX="105.0" layoutY="99.0" prefHeight="31.0" prefWidth="80.0" promptText="Тип" />
+        <Button fx:id="getReadersButton" layoutX="744.0" layoutY="675.0" mnemonicParsing="false" onAction="#getReaders" text="Посмотреть" />
+        <TableView fx:id="readersTable" layoutX="24.0" layoutY="141.0" prefHeight="479.0" prefWidth="1543.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="typeColumn" prefWidth="96.0" text="Тип" />
+                <TableColumn fx:id="nameColumn" prefWidth="87.0" text="Имя" />
+                <TableColumn fx:id="lastNameColumn" prefWidth="93.0" text="Фамилия" />
+                <TableColumn fx:id="fatherNameColumn" prefWidth="112.0" text="Отчество" />
+                <TableColumn fx:id="regDateColumn" prefWidth="199.0" text="Дата регистрации" />
+                <TableColumn fx:id="leaveDateColumn" prefWidth="201.0" text="Дата выбывания" />
+                <TableColumn fx:id="bookNumColumn" prefWidth="114.0" text="Взято книг" />
+                <TableColumn fx:id="debtColumn" prefWidth="105.0" text="Долг" />
+                <TableColumn fx:id="punishmentNumColumn" prefWidth="124.0" text="Нарушения" />
+                <TableColumn fx:id="paymentColumn" prefWidth="112.0" text="Штраф" />
+                <TableColumn fx:id="departmentColumn" prefWidth="112.0" text="Факультет" />
+                <TableColumn fx:id="groupColumn" prefWidth="112.0" text="Группа" />
+            </columns>
+        </TableView>
+        <TextField fx:id="idField" layoutX="33.0" layoutY="99.0" prefHeight="31.0" prefWidth="59.0" promptText="id" />
+        <TextField fx:id="nameField" layoutX="200.0" layoutY="99.0" prefHeight="31.0" prefWidth="74.0" promptText="Имя" />
+        <TextField fx:id="lastnameField" layoutX="286.0" layoutY="99.0" prefHeight="31.0" prefWidth="80.0" promptText="Фамилия" />
+        <TextField fx:id="fathernameField" layoutX="378.0" layoutY="99.0" prefHeight="31.0" prefWidth="103.0" promptText="Отчество" />
+        <DatePicker fx:id="regDateField" layoutX="489.0" layoutY="99.0" prefHeight="31.0" prefWidth="187.0" promptText="Дата регистрации" />
+        <DatePicker fx:id="leavDateField" layoutX="696.0" layoutY="99.0" prefHeight="31.0" prefWidth="187.0" promptText="Дата выбывания" />
+        <TextField fx:id="bookNumField" layoutX="897.0" layoutY="99.0" prefHeight="31.0" prefWidth="92.0" promptText="Число" />
+        <TextField fx:id="paymentField" layoutX="1240.0" layoutY="99.0" prefHeight="31.0" prefWidth="86.0" promptText="Величина" />
+        <TextField fx:id="punishmentNumField" layoutX="1116.0" layoutY="99.0" prefHeight="31.0" prefWidth="103.0" promptText="Количество" />
+        <TextField fx:id="debtBookNumField" layoutX="1007.0" layoutY="99.0" prefHeight="31.0" prefWidth="86.0" promptText="Величина" />
+        <ComboBox fx:id="optionReturn" layoutX="738.0" layoutY="52.0" prefHeight="31.0" prefWidth="103.0" promptText="Опция" />
+        <ComboBox fx:id="optionTake" layoutX="531.0" layoutY="52.0" prefHeight="31.0" prefWidth="103.0" promptText="Опция" />
+        <Button fx:id="dropFilterButton" layoutX="720.0" layoutY="635.0" mnemonicParsing="false" onAction="#dropFilter" text="Сбросить фильтр" />
+        <TextField fx:id="departmentField" layoutX="1353.0" layoutY="99.0" prefHeight="31.0" prefWidth="86.0" promptText="Факультет" />
+        <TextField fx:id="groupField" layoutX="1463.0" layoutY="99.0" prefHeight="31.0" prefWidth="86.0" promptText="Группа" />
+
+    </children>
+</AnchorPane>

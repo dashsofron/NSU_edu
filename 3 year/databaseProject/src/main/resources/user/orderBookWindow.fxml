@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="341.0" prefWidth="295.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.user.OrderBookController">
+   <children>
+      <TextField fx:id="bookIdField" layoutX="51.0" layoutY="32.0" promptText="Идентификатор книги" />
+      <CheckBox fx:id="showAvailableBooksCheck" layoutX="303.0" layoutY="201.0" mnemonicParsing="false" text="Посмотреть другие варианты" visible="false" />
+      <ComboBox fx:id="bookTakenPlaceBox" layoutX="70.0" layoutY="78.0" prefWidth="150.0" promptText="Место взятия" visible="false" />
+      <Button fx:id="orderBookButton" layoutX="106.0" layoutY="173.0" mnemonicParsing="false" onAction="#orderBook" text="Заказать" />
+<!--      <DatePicker fx:id="dateOfTaking" layoutX="37.0" layoutY="126.0" promptText="Дата взятия" />-->
+      <TextArea fx:id="infoArea" layoutX="32.0" layoutY="221.0" prefHeight="84.0" prefWidth="232.0" promptText="Информационное поле" />
+   </children>
+</AnchorPane>

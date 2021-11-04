@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.places.DeletePlaceController">
+   <children>
+      <TextField fx:id="idField" alignment="CENTER" layoutX="116.0" layoutY="86.0" promptText="Идентификатор" />
+      <Button fx:id="deleteButton" layoutX="172.0" layoutY="142.0" mnemonicParsing="false" onAction="#delete" text="Удалить" />
+      <TextArea fx:id="infoArea" layoutX="117.0" layoutY="196.0" prefHeight="59.0" prefWidth="187.0" promptText="Информационное поле" />
+   </children>
+</AnchorPane>

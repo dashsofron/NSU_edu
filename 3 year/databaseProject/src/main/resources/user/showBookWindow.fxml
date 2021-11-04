@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane fx:controller="UI.user.ShowBookController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="873.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView fx:id="bookedBooksTable" layoutX="43.0" layoutY="134.0"  prefHeight="380.0" prefWidth="788.0">
+         <columns>
+            <TableColumn fx:id="suitableBookIdColumn" prefWidth="42.0" text="ID" />
+            <TableColumn fx:id="suitableBookNameColumn" prefWidth="153.0" text="Название" />
+            <TableColumn fx:id="suitableBookAuthorColumn" prefWidth="113.0" text="Автор" />
+            <TableColumn fx:id="suitableBookGenreColumn" prefWidth="163.0" text="Жанр" />
+            <TableColumn fx:id="suitableBookPlaceColumn" prefWidth="169.0" text="Место взятия" />
+            <TableColumn fx:id="suitableBookStatusColumn" prefWidth="145.0" text="Статус" />
+         </columns>
+      </TableView>
+      <TextField fx:id="bookNameField" layoutX="88.0" layoutY="38.0" prefHeight="31.0" prefWidth="150.0" promptText="Название" />
+      <TextField fx:id="bookAuthorField" layoutX="242.0" layoutY="38.0" prefHeight="31.0" prefWidth="115.0" promptText="Автор" />
+      <ComboBox fx:id="bookGenreBox" layoutX="363.0" layoutY="38.0" prefWidth="150.0" promptText="Жанр" />
+      <ComboBox fx:id="bookPlaceBox" layoutX="527.0" layoutY="38.0" prefWidth="150.0" promptText="Место" />
+      <Button fx:id="showSuitableBooksButton" layoutX="320.0" layoutY="86.0" mnemonicParsing="false" onAction="#showSuitableBooks" text="Посмотреть подходящие книги" />
+      <CheckBox fx:id="bookAvailableCheck" layoutX="703.0" layoutY="43.0" mnemonicParsing="false" text="Доступны" />
+      <Button fx:id="orderBookButton" layoutX="376.0" layoutY="531.0" mnemonicParsing="false" onAction="#orderBook" text="Заказать книгу" />
+   </children>
+</AnchorPane>

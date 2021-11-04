@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.readers.UpdateReaderController">
+   <children>
+      <TextField fx:id="readerIdField" alignment="CENTER" layoutX="122.0" layoutY="44.0" promptText="Идентификатор" />
+      <TextField fx:id="readerNameField" alignment="CENTER" layoutX="122.0" layoutY="114.0" promptText="Имя" />
+      <TextField fx:id="readerFatherNameField" alignment="CENTER" layoutX="122.0" layoutY="153.0" promptText="Отчество" />
+      <TextField fx:id="readerLastNameField" alignment="CENTER" layoutX="122.0" layoutY="192.0" promptText="Фамилия" />
+      <ComboBox fx:id="readerTypeBox" layoutX="147.0" layoutY="315.0" onAction="#addNeededFields" prefWidth="150.0" promptText="Тип" />
+      <TextField fx:id="studentDepartment" alignment="CENTER" layoutX="123.0" layoutY="355.0" promptText="Факультет" visible="false" />
+      <TextField fx:id="studentGroup" alignment="CENTER" layoutX="123.0" layoutY="393.0" promptText="Группа" visible="false" />
+      <TextField fx:id="teacherCathedra" alignment="CENTER" layoutX="122.0" layoutY="355.0" promptText="Кафедра" visible="false" />
+      <TextField fx:id="teacherDegree" alignment="CENTER" layoutX="123.0" layoutY="393.0" promptText="Ученая степень" visible="false" />
+      <Button fx:id="updateReaderButton" layoutX="173.0" layoutY="435.0" mnemonicParsing="false" onAction="#updateReader" text="Измненить" />
+      <TextField fx:id="infoArea" alignment="CENTER" editable="false" layoutX="128.0" layoutY="479.0" promptText="Информационное поле" />
+      <DatePicker fx:id="readerRegistrationDateField" layoutX="122.0" layoutY="232.0" promptText="дата регистрации" />
+      <DatePicker fx:id="readerLeavingDateField" layoutX="122.0" layoutY="272.0" promptText="дата выбывания" />
+      <CheckBox fx:id="getOldInfoCheck" layoutX="150.0" layoutY="84.0" mnemonicParsing="false" onAction="#getOldInfo" text="старые данные" />
+   </children>
+</AnchorPane>

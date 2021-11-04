@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="843.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.books.GetBookController">
+    <children>
+        <TextField fx:id="nameField" layoutX="122.0" layoutY="47.0" prefHeight="31.0" prefWidth="112.0" promptText="Название" />
+        <ComboBox fx:id="placeBox" layoutX="529.0" layoutY="47.0" prefHeight="31.0" prefWidth="154.0" promptText="Место хранения" />
+        <ComboBox fx:id="genreBox" layoutX="394.0" layoutY="46.0" prefHeight="31.0" prefWidth="126.0" promptText="Жанр" />
+        <TableView fx:id="booksTable" layoutX="35.0" layoutY="91.0" prefHeight="293.0" prefWidth="773.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="nameColumn" prefWidth="137.0" text="Название" />
+                <TableColumn fx:id="authorColumn" prefWidth="138.0" text="Автор" />
+                <TableColumn fx:id="genreColumn" prefWidth="137.0" text="Жанр" />
+                <TableColumn fx:id="placeColumn" prefWidth="167.0" text="Местонахождение" />
+                <TableColumn fx:id="statusColumn" minWidth="0.0" prefWidth="118.0" text="Статус" />
+            </columns>
+        </TableView>
+        <Button fx:id="getBooksButton" layoutX="379.0" layoutY="442.0" mnemonicParsing="false" onAction="#getBooks" text="Получить" />
+        <TextField fx:id="idField" layoutX="46.0" layoutY="46.0" prefHeight="31.0" prefWidth="62.0" promptText="id" />
+        <TextField fx:id="authorField" layoutX="260.0" layoutY="47.0" prefHeight="31.0" prefWidth="112.0" promptText="Автор" />
+        <ComboBox fx:id="statusBox" layoutX="696.0" layoutY="47.0" prefHeight="31.0" prefWidth="103.0" promptText="Статус" />
+        <Button fx:id="dropFilterButton" layoutX="352.0" layoutY="400.0" mnemonicParsing="false" onAction="#dropFilter" text="Сбросить фильтр" />
+    </children>
+</AnchorPane>
