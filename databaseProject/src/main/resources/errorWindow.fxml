@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="430.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ErrorController">
+   <children>
+      <Label layoutX="143.0" layoutY="95.0" text="Что-то пошло не так" />
+      <TextArea fx:id="errorInfo" editable="false" layoutX="43.0" layoutY="125.0" prefHeight="200.0" prefWidth="344.0" />
+   </children>
+</AnchorPane>

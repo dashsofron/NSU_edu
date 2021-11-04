@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.punishments.AddPunishmentController">
+   <children>
+      <TextField fx:id="readerIdField" alignment="CENTER" layoutX="109.0" layoutY="36.0" prefHeight="31.0" prefWidth="205.0" promptText="Идентификатор читателя" />
+      <ComboBox fx:id="typeBox" layoutX="129.0" layoutY="81.0" prefHeight="31.0" prefWidth="165.0" promptText="Тип наказания" />
+      <DatePicker fx:id="startDateField" layoutX="100.0" layoutY="134.0" promptText="Начало блокировки" />
+      <DatePicker fx:id="endDateField" layoutX="101.0" layoutY="193.0" promptText="Конец блокировки" />
+      <TextField fx:id="paymentField" layoutX="109.0" layoutY="248.0" promptText="Штраф" />
+      <Button fx:id="addPunishmentButton" layoutX="166.0" layoutY="295.0" mnemonicParsing="false" onAction="#addPunishment" text="Добавить" />
+      <TextArea fx:id="infoArea" layoutX="103.0" layoutY="345.0" prefHeight="40.0" prefWidth="218.0" promptText="Информационное поле" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.punishments.DeletePunishmentController">
+   <children>
+      <TextField fx:id="idField" alignment="CENTER" layoutX="109.0" layoutY="106.0" prefHeight="31.0" prefWidth="203.0" promptText="Идентификатор наказания" />
+      <Button fx:id="deleteButton" layoutX="173.0" layoutY="162.0" mnemonicParsing="false" onAction="#deletePunishment" text="Удалить" />
+      <TextArea fx:id="infoArea" layoutX="109.0" layoutY="220.0" prefHeight="51.0" prefWidth="203.0" promptText="Информационное поле" />
+   </children>
+</AnchorPane>

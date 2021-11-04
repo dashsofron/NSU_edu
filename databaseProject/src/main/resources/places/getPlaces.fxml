@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.places.GetPlaceController">
+    <children>
+        <TextField fx:id="idField" alignment="CENTER" layoutX="32.0" layoutY="33.0" prefHeight="31.0" prefWidth="62.0" promptText="id" />
+        <Button fx:id="getPlacesButton" layoutX="236.0" layoutY="365.0" mnemonicParsing="false" onAction="#getPlaces" text="Получить места" />
+        <TableView fx:id="placesTable" layoutX="23.0" layoutY="76.0" prefHeight="235.0" prefWidth="555.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+                <TableColumn fx:id="nameColumn" prefWidth="142.0" text="Название" />
+                <TableColumn fx:id="addressColumn" prefWidth="209.0" text="Адрес" />
+                <TableColumn fx:id="typeColumn" prefWidth="128.0" text="Тип" />
+            </columns>
+        </TableView>
+        <TextField fx:id="nameField" alignment="CENTER" layoutX="110.0" layoutY="33.0" prefHeight="31.0" prefWidth="119.0" promptText="Название" />
+        <TextField fx:id="addressField" alignment="CENTER" layoutX="246.0" layoutY="33.0" prefHeight="31.0" prefWidth="195.0" promptText="Адрес" />
+        <ComboBox fx:id="typeBox" layoutX="460.0" layoutY="33.0" prefHeight="31.0" prefWidth="111.0" promptText="тип" />
+        <Button fx:id="dropFilterButton" layoutX="231.0" layoutY="325.0" mnemonicParsing="false" onAction="#dropFilter" text="Сбросить фильтр" />
+    </children>
+</AnchorPane>

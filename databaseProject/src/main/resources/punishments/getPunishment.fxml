@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.punishments.GetPunishmentController">
+    <children>
+        <Button fx:id="getPunishmentButton" layoutX="453.0" layoutY="480.0" mnemonicParsing="false" onAction="#getPunishments" text="Посмотреть" />
+        <TableView fx:id="punishmentsTable" layoutX="43.0" layoutY="106.0" prefHeight="323.0" prefWidth="922.0">
+            <columns>
+                <TableColumn fx:id="punishmentIdColumn" prefWidth="69.0" text="ID" />
+                <TableColumn fx:id="readerIdColumn" prefWidth="99.0" text="ID читателя" />
+                <TableColumn fx:id="punishTypeColumn" prefWidth="137.0" text="Тип" />
+                <TableColumn fx:id="startBlockingColumn" prefWidth="190.0" text="Начало блокировки" />
+                <TableColumn fx:id="endBlockingColumn" prefWidth="192.0" text="Конец блокировки" />
+                <TableColumn fx:id="paymentColumn" prefWidth="98.0" text="Штраф" />
+                <TableColumn fx:id="statusColumn" prefWidth="136.0" text="Статус" />
+            </columns>
+        </TableView>
+        <TextField fx:id="idField" layoutX="50.0" layoutY="67.0" prefHeight="31.0" prefWidth="47.0" promptText="id" />
+        <TextField fx:id="readerIdField" layoutX="108.0" layoutY="67.0" prefHeight="31.0" prefWidth="97.0" promptText="id читателя" />
+        <TextField fx:id="paymentField" layoutX="741.0" layoutY="67.0" prefHeight="31.0" prefWidth="86.0" promptText="штраф" />
+        <ComboBox fx:id="typeBox" layoutX="216.0" layoutY="67.0" prefHeight="31.0" prefWidth="125.0" promptText="Тип" />
+        <DatePicker fx:id="startField" layoutX="352.0" layoutY="67.0" prefHeight="31.0" prefWidth="173.0" promptText="дата начала" />
+        <DatePicker fx:id="endField" layoutX="547.0" layoutY="67.0" prefHeight="31.0" prefWidth="173.0" promptText="дата конца" />
+        <ComboBox fx:id="statusField" layoutX="840.0" layoutY="67.0" prefHeight="31.0" prefWidth="125.0" promptText="Статус" />
+        <ComboBox fx:id="optionTake" layoutX="370.0" layoutY="29.0" prefHeight="31.0" prefWidth="103.0" promptText="Опция" />
+        <ComboBox fx:id="optionReturn" layoutX="577.0" layoutY="29.0" prefHeight="31.0" prefWidth="103.0" promptText="Опция" />
+        <Button fx:id="dropFilterButton" layoutX="435.0" layoutY="438.0" mnemonicParsing="false" onAction="#dropFilter" text="Сбросить фильтр" />
+
+    </children>
+</AnchorPane>

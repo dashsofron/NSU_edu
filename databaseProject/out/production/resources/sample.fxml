@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<Pane fx:id="pane" fx:controller="UI.Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="274.0" prefWidth="348.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Button fx:id="getStringNumButton" layoutX="103.0" layoutY="31.0" mnemonicParsing="false" onAction="#getStringNum" text="Количество строк" />
+        <Label fx:id="answerLabel" layoutX="88.0" layoutY="101.0" prefHeight="21.0" prefWidth="172.0" text="" />
+    </children>
+</Pane>

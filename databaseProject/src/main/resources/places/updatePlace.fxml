@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.places.UpdatePlaceController">
+   <children>
+      <TextField fx:id="nameField" alignment="CENTER" layoutX="117.0" layoutY="141.0" promptText="Название" />
+      <TextField fx:id="addressField" alignment="CENTER" layoutX="117.0" layoutY="189.0" promptText="Адрес" />
+      <ComboBox fx:id="typeBox" layoutX="136.0" layoutY="240.0" prefWidth="150.0" promptText="Тип" />
+      <Button fx:id="updateButton" layoutX="168.0" layoutY="288.0" mnemonicParsing="false" onAction="#updatePlace" text="Обновить" />
+      <TextField fx:id="idField" alignment="CENTER" layoutX="117.0" layoutY="58.0" promptText="Идентификатор" />
+      <TextArea fx:id="infoArea" layoutX="117.0" layoutY="336.0" prefHeight="59.0" prefWidth="187.0" promptText="Информационное поле" />
+      <CheckBox fx:id="getOldInfoCheck" layoutX="144.0" layoutY="107.0" mnemonicParsing="false" onAction="#getOldInfo" text="старые данные" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="535.0" prefWidth="1074.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.readers.table.StudentsTableController">
+   <children>
+      <TableView fx:id="readersTable" layoutX="25.0" layoutY="45.0" prefHeight="463.0" prefWidth="1013.0">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="type" prefWidth="75.0" text="Тип" />
+          <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Имя" />
+            <TableColumn fx:id="lastName" prefWidth="75.0" text="Фамилия" />
+            <TableColumn fx:id="fatherName" prefWidth="75.0" text="Отчество" />
+            <TableColumn fx:id="regDate" prefWidth="142.0" text="Дата регистрации" />
+            <TableColumn fx:id="leaveDate" prefWidth="143.0" text="Дата выбывания" />
+            <TableColumn fx:id="ticketNum" prefWidth="93.0" text="№ Билета" />
+            <TableColumn fx:id="department" prefWidth="90.0" text="Факультет" />
+            <TableColumn fx:id="group" prefWidth="107.0" text="Группа" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

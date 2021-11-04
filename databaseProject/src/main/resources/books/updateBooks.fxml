@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.books.UpdateBookController">
+   <children>
+      <CheckBox fx:id="categoryCheck" layoutX="151.0" layoutY="163.0" mnemonicParsing="false" onAction="#openType" text="Другая книга" />
+      <TextField fx:id="idFIeld" alignment="CENTER" layoutX="117.0" layoutY="21.0" promptText="id" />
+      <TextArea fx:id="infoArea" layoutX="71.0" layoutY="370.0" prefHeight="52.0" prefWidth="278.0" />
+      <ComboBox fx:id="typeBox" layoutX="136.0" layoutY="115.0" prefWidth="150.0" promptText="Тип книги" />
+      <ComboBox fx:id="placeBox" layoutX="126.0" layoutY="67.0" prefHeight="31.0" prefWidth="168.0" promptText="Место хранения" />
+      <TextField fx:id="nameField" alignment="CENTER" layoutX="118.0" layoutY="194.0" promptText="Имя" visible="false" />
+      <TextField fx:id="authorField" alignment="CENTER" layoutX="117.0" layoutY="238.0" promptText="Автор" visible="false" />
+      <ComboBox fx:id="genreBox" layoutX="137.0" layoutY="286.0" prefWidth="150.0" promptText="Жанр" visible="false" />
+      <Button fx:id="updateButton" layoutX="166.0" layoutY="328.0" mnemonicParsing="false" onAction="#updateBook" text="Обновить" />
+   </children>
+</AnchorPane>
